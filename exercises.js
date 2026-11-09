@@ -26,7 +26,23 @@ window.PLAIDS_EXERCISES = [
 [4,"La biblioteca ei serrada sur miezdi.","Die Bibliothek ist über Mittag geschlossen.","serrada stimmt mit la biblioteca überein."],
 [4,"Quel kiosc ei aviarts, mo tschel ei serraus.","Dieser Kiosk ist offen, der andere aber geschlossen.","quel kann vor einem Nomen stehen; tschel kann ein Nomen ersetzen."],
 [4,"Ella frestgera ha ei latg.","Im Kühlschrank gibt es Milch.","en + la → ella; nach der Ortsangabe folgt ha ei."],
-[4,"Saveis Vus mussar a mi la via?","Können Sie mir den Weg zeigen?","saveis + Infinitiv; a mi = mir."]
+[4,"Saveis Vus mussar a mi la via?","Können Sie mir den Weg zeigen?","saveis + Infinitiv; a mi = mir."],
+[1,"Jeu stun a Laax dapi treis onns.","Ich wohne seit drei Jahren in Laax.","dapi + Zeitdauer; bei einem noch bestehenden Wohnort steht das Präsens.","repetition"],
+[1,"Cun mei va ei bein, mo jeu sun staunchels.","Mir geht es gut, aber ich bin müde.","bein ist ein Adverb. staunchels ist hier maskulin; feminin lautet die Form stauncla.","repetition"],
+[1,"Nua meis vus suenter il cuors?","Wohin geht ihr nach dem Kurs?","ir: nus mein, vus meis. Die Frage beginnt mit nua.","repetition"],
+[2,"Jeu hai seit e prendel in migiel aua.","Ich habe Durst und nehme ein Glas Wasser.","haver seit entspricht «Durst haben». Ein Glas Wasser: in migiel aua.","repetition"],
+[3,"Haveis Vus reservau ina combra per duas persunas?","Haben Sie ein Zimmer für zwei Personen reserviert?","Haveis Vus + Partizip; duas passt zum femininen persunas.","hotel"],
+[3,"Jeu hai reservau ina combra d’in letg per ina notg.","Ich habe ein Einzelzimmer für eine Nacht reserviert.","d’in letg beschreibt die Zimmerart; per ina notg gibt die Aufenthaltsdauer an.","hotel"],
+[3,"Nus vegnin mesjamna e stein tochen venderdis.","Wir kommen am Mittwoch und bleiben bis Freitag.","mesjamna = Mittwoch; venderdis = Freitag; tochen markiert das Ende.","hotel"],
+[3,"Il solver ei dallas otg tochen las diesch e mesa.","Das Frühstück gibt es von acht bis halb elf.","dallas = da + las. Las diesch e mesa ist 10.30 Uhr, auf Deutsch halb elf.","hotel"],
+[3,"La combra cuosta navonta francs per notg.","Das Zimmer kostet neunzig Franken pro Nacht.","per notg ist die Preiseinheit; navonta ist die Zahl 90.","hotel"],
+[3,"La clav ei cheu, sin meisa.","Der Schlüssel ist hier, auf dem Tisch.","sin meisa bezeichnet hier den Ort; cheu = hier.","hotel"],
+[3,"Vossa combra ei ell’emprema alzada.","Ihr Zimmer ist im ersten Stock.","emprema ist feminin; en + l’emprema → ell’emprema.","hotel"],
+[3,"Dat ei WLAN en tut las combras?","Gibt es WLAN in allen Zimmern?","Dat ei …? fragt nach dem Vorhandensein; tut las combras = alle Zimmer.","hotel"],
+[4,"Jeu vi ir a pei al lag suenter il solver.","Ich will nach dem Frühstück zu Fuss zum See gehen.","al = a + il; a pei beschreibt die Art der Fortbewegung.","hotel"],
+[4,"Per ir alla staziun stueis Vus ir a seniester.","Um zum Bahnhof zu kommen, müssen Sie nach links gehen.","per + Infinitiv gibt den Zweck an; stueis ist die Form zu Vus.","hotel"],
+[4,"Jeu prendel la clav e dun ella a Vus.","Ich nehme den Schlüssel und gebe ihn Ihnen.","ella ersetzt la clav; a Vus bezeichnet die Person, die den Schlüssel erhält.","hotel"],
+[4,"La recepziun ei aviarta tochen las nov.","Die Rezeption ist bis neun Uhr geöffnet.","aviarta ist die feminine Form; tochen bezeichnet hier die Schlusszeit.","hotel"]
 ];
 
 (() => {
@@ -42,8 +58,8 @@ window.PLAIDS_EXERCISES = [
     $('exercise-result').hidden = true;
   };
   const reset = () => {
-    const lesson = Number($('exercise-lesson').value);
-    selected = all.filter(row => !lesson || row[0] === lesson);
+    const filter = $('exercise-lesson').value;
+    selected = all.filter(row => filter === '0' || String(row[0]) === filter || row[4] === filter);
     index = 0; render();
   };
   $('exercise-lesson').onchange = reset;

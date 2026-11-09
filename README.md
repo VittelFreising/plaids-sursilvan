@@ -1,6 +1,6 @@
 # Plaids · Romontsch sursilvan
 
-Interaktiver Deutsch–Sursilvan-Trainer zu Lecziuns 1–4: Karteikarten mit Wiederholungen, durchsuchbare Wortliste mit IPA, bidirektionale Satzübungen und Grammatik.
+Interaktiver Deutsch–Sursilvan-Trainer zu Lecziuns 1–4: Karteikarten mit Wiederholungen, alphabetische Wortliste mit IPA, bidirektionale Satzübungen und Grammatik. Unter „Übersetzen“ lassen sich die Themen „Hotel: Check-in und Aufenthalt“ und „Wiederholung: Alltag und Gespräch“ gezielt üben.
 
 Öffne index.html direkt oder verwende die GitHub-Pages-Version. Der Lernstand bleibt im Browser und kann unter IPA & Hilfe exportiert werden.
 

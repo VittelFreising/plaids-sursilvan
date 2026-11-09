@@ -81,9 +81,10 @@
   addEventListener('keydown',e=>{if(view!=='lernen'||['INPUT','SELECT','TEXTAREA','BUTTON','A','SUMMARY'].includes(document.activeElement?.tagName))return;if(e.code==='Space'&&!revealed){e.preventDefault();reveal();}else if(revealed&&/^[1-4]$/.test(e.key))grade(Number(e.key)-1);});
   $('answer').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();reveal();}};
   function el(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;}
+  const alphabetical=[...cards].sort((a,b)=>a.word.localeCompare(b.word,'rm')||a.de.localeCompare(b.de,'de'));
   function renderDict(){
     const query=normalize($('search').value),group=$('dict-group').value,ipa=$('ipa-filter').value;
-    const result=cards.filter(c=>(group==='all'||group===c.group)&&(ipa==='all'||ipa===c.status)&&(!query||normalize(c.word+' '+c.de+' '+c.note).includes(query)));
+    const result=alphabetical.filter(c=>(group==='all'||group===c.group)&&(ipa==='all'||ipa===c.status)&&(!query||normalize(c.word+' '+c.de+' '+c.note).includes(query)));
     $('results').textContent=`${result.length} Karten gefunden · ${Math.min(dictLimit,result.length)} angezeigt`;
     $('word-list').replaceChildren();
     for(const c of result.slice(0,dictLimit)){
