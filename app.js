@@ -75,7 +75,7 @@
   $('start').onclick=start;$('reveal').onclick=reveal;$('skip').onclick=()=>{index++;renderCard();};
   document.querySelectorAll('[data-grade]').forEach(b=>b.onclick=()=>grade(Number(b.dataset.grade)));
   $('spell').onchange=renderCard;$('direction').onchange=renderCard;
-  function go(name){view=['lernen','woerter','hilfe','uebersetzen','kurs'].includes(name)?name:'lernen';document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!=='view-'+view);document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));if(view==='woerter')renderDict();}
+  function go(name){view=['lernen','woerter','hilfe','uebersetzen','kurs'].includes(name)?name:'lernen';document.body.dataset.activeView=view;document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!=='view-'+view);document.querySelectorAll('[data-view]').forEach(b=>{const active=b.dataset.view===view;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});if(view==='woerter')renderDict();}
   document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.view;go(b.dataset.view);});
   addEventListener('hashchange',()=>go(location.hash.slice(1)));
   addEventListener('keydown',e=>{if(view!=='lernen'||['INPUT','SELECT','TEXTAREA','BUTTON','A','SUMMARY'].includes(document.activeElement?.tagName))return;if(e.code==='Space'&&!revealed){e.preventDefault();reveal();}else if(revealed&&/^[1-4]$/.test(e.key))grade(Number(e.key)-1);});
